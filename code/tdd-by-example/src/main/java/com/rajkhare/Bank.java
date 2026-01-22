@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Bank {
 
-    Map<Pair, Integer> rateMap = new HashMap<>();
+    final Map<Pair, Integer> rateMap = new HashMap<>();
 
     public Money reduce(Expression source, String toCurrency) {
         return source.reduce(this,toCurrency);

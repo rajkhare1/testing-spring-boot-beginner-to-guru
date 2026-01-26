@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.rajkhare'
+version = '1.0-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitPlatformVersion = '6.1.0-M1'
+}
+
+dependencies {
+    testImplementation "org.junit.jupiter:junit-jupiter-api:6.1.0-M1"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:6.1.0-M1"
+    testRuntimeOnly "org.junit.platform:junit-platform-launcher:6.1.0-M1"
+}
+
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+test {
+    useJUnitPlatform()
+
+    testLogging.showStandardStreams = true
+
+    testLogging {
+        events "passed","skipped", "failed"
+    }
+}

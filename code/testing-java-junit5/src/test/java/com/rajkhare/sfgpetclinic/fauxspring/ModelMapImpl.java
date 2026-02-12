@@ -5,6 +5,8 @@ import java.util.Map;
 
 public class ModelMapImpl implements Model{
 
+
+
     Map<String, Object> map = new HashMap<>();
 
     @Override
@@ -15,5 +17,9 @@ public class ModelMapImpl implements Model{
     @Override
     public void addAttribute(Object o) {
 
+    }
+
+    public Map<String, Object> getMap() {
+        return map;
     }
 }

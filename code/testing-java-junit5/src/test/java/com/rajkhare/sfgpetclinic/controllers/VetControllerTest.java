@@ -2,12 +2,15 @@ package com.rajkhare.sfgpetclinic.controllers;
 
 import com.rajkhare.sfgpetclinic.fauxspring.Model;
 import com.rajkhare.sfgpetclinic.fauxspring.ModelMapImpl;
+import com.rajkhare.sfgpetclinic.model.Vet;
 import com.rajkhare.sfgpetclinic.services.SpecialtyService;
 import com.rajkhare.sfgpetclinic.services.VetService;
 import com.rajkhare.sfgpetclinic.services.map.SpecialityMapService;
 import com.rajkhare.sfgpetclinic.services.map.VetMapService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.Set;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -24,6 +27,12 @@ class VetControllerTest {
         vetService = new VetMapService(specialtyService);
 
         vetController = new VetController(vetService);
+
+        Vet vet1 = new Vet(1L, "Raj", "Khare", null);
+        Vet vet2 = new Vet(2L, "Richa", "Khare", null);
+
+        vetService.save(vet1);
+        vetService.save(vet2);
     }
 
     @Test
@@ -33,5 +42,9 @@ class VetControllerTest {
         String view = vetController.listVets(model);
 
         assertThat("vets/index").isEqualTo(view);
+
+        Set modelAttribute = (Set) ((ModelMapImpl) model).getMap().get("vets");
+
+        assertThat(modelAttribute.size()).isEqualTo(2);
     }
 }

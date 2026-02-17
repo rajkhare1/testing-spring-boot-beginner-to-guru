@@ -1,5 +1,6 @@
 package com.rajkhare.sfgpetclinic.controllers;
 
+import com.rajkhare.sfgpetclinic.ControllerTests;
 import com.rajkhare.sfgpetclinic.fauxspring.Model;
 import com.rajkhare.sfgpetclinic.fauxspring.ModelMapImpl;
 import com.rajkhare.sfgpetclinic.model.Vet;
@@ -14,7 +15,7 @@ import java.util.Set;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-class VetControllerTest {
+class VetControllerTest implements ControllerTests {
 
     VetService vetService;
     SpecialtyService specialtyService;

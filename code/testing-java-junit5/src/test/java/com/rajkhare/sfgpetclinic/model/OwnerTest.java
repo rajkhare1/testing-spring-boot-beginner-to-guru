@@ -1,8 +1,11 @@
 package com.rajkhare.sfgpetclinic.model;
 
 import com.rajkhare.sfgpetclinic.ModelTests;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -28,5 +31,12 @@ class OwnerTest implements ModelTests {
 
         assertThat(owner.getCity(), is("Hyderabad"));
 
+    }
+
+    @DisplayName("Value Source Test ")
+    @ParameterizedTest(name = "{displayName} - [{index}] {arguments}")
+    @ValueSource(strings = {"Spring", "Framework", "Raj"})
+    void testValueSource(String val) {
+        System.out.println(val);
     }
 }

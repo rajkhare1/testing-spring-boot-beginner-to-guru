@@ -1,8 +1,7 @@
 package com.rajkhare.sfgpetclinic.model;
 
 import com.rajkhare.sfgpetclinic.ModelTests;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -31,4 +30,19 @@ class PersonTest implements ModelTests {
                 () -> assertEquals("Khare", person.getLastName(),"LastName Failed")
         );
     }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
